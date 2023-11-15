@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Backend\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,13 @@ Route::get('forgot-password', [AuthController::class,'forgot_password']);
 Route::get('register', [AuthController::class,'register']);
 Route::post('register_post', [AuthController::class,'RegisterPost']);
 Route::post('checkmail',[AuthController::class,'CheckMail']);
+
+
+Route::post('login_post',[AuthController::class,'LoginPost']);
+
+
+// Admin || HR all route
+
+Route::group(['middleware' => 'admin'], function (){
+    Route::get('admin/dashboard',[DashboardController::class,'dashboard']);
+});

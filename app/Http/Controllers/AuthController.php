@@ -7,6 +7,7 @@ use App\Models\User;
 use Hash;
 //use  Illuminate\Support\Str;
 use Illuminate\Support\Str;
+use Auth;
 
 class AuthController extends Controller
 {
@@ -57,4 +58,19 @@ class AuthController extends Controller
             return response()->json(array("exists" => false));
         }
     }
+
+    public function LoginPost(Request $request)
+    {
+        // dd($request->all());
+        if (Auth::attempt(['email'=>$request->email,'password'=>$request->password], true)){
+            if (Auth::user()->is_role =='1'){
+                return redirect()->intended('admin/dashboard');
+            }else{
+                return redirect('/')->with('error','No Hr Availble.. Please Check');
+            }
+        }else{
+            return redirect()->back()->with('error','Please Enter the Correct Credentials');
+        }
+    }
+
 }
