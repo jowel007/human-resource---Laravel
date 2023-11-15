@@ -36,7 +36,7 @@ class AuthController extends Controller
             'password' => 'required|min:6',
             'confirm_password' => 'required_with:password|same:password|min:6'
         ]);
-        
+
         $user                  = new User;
         $user->name            = trim($request->name);
         $user->email           = trim($request->email);
@@ -46,5 +46,15 @@ class AuthController extends Controller
 
         return redirect('/')->with('success','Register Successfully.');
 
+    }
+
+    public function CheckMail(Request $request){
+        $email =$request->input('email');
+        $isExists = User::where('email',$email)->first();
+        if ($isExists){
+            return response()->json(array("exists" => true));
+        }else{
+            return response()->json(array("exists" => false));
+        }
     }
 }
