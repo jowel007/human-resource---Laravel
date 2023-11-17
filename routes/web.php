@@ -35,6 +35,8 @@ Route::group(['middleware' => 'admin'], function (){
     Route::get('admin/dashboard',[DashboardController::class,'dashboard']);
 
     Route::get('admin/employee',[EmployeeController::class,'index']);
+    Route::get('admin/employee/add',[EmployeeController::class,'add']);
+    Route::post('admin/employee/add',[EmployeeController::class,'insert']);
 
 });
 

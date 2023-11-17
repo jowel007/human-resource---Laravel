@@ -13,7 +13,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">List</a></li>
                             <li class="breadcrumb-item active">Employee List</li>
                         </ol>
                     </div><!-- /.col -->
@@ -25,7 +25,7 @@
     <section class="content">
         <div class="container-fluid">
             @include('_message')
-            <a href="" class="btn btn-primary">Add Employees</a>
+            <a href="{{ url('admin/employee/add') }}" class="btn btn-primary">Add Employees</a>
             <div class="row">
                 <section class="col-lg-12">
                     <div class="card">
