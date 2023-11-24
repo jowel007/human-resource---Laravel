@@ -9,8 +9,8 @@ use App\Models\User;
 class EmployeeController extends Controller
 {
     public function index(Request $request){
-        // $data['getRecord'] = User::getRecord();
-        return view('backend.employee.list');
+        $data['getRecord'] = User::getRecord();
+        return view('backend.employee.list',$data);
     }
 
     public function add(){

@@ -39,23 +39,33 @@
 
                         </div>
 
-                        <form action="">
+                        <form action="" method="get">
                             <div class="card-body">
                                 <div class="row">
 
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-md-1">
+                                        <label for="">ID</label>
+                                        <input type="text" class="form-control" value="{{ Request()->id }}" name="id" placeholder="ID">
+                                    </div>
+
+                                    <div class="form-group col-md-2">
                                         <label for="">First Name</label>
-                                        <input type="text" class="form-control" name="" placeholder="First Name">
+                                        <input type="text" class="form-control" value="{{ Request()->name }}" name="name" placeholder="First Name">
                                     </div>
 
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-md-2">
                                         <label for="">Last Name</label>
-                                        <input type="text" class="form-control" name="" placeholder="Last Name">
+                                        <input type="text" class="form-control" value="{{ Request()->last_name }}" name="last_name" placeholder="Last Name">
                                     </div>
 
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-md-2">
+                                        <label for="">Email</label>
+                                        <input type="text" class="form-control" value="{{ Request()->email }}" name="email" placeholder="Email">
+                                    </div>
+
+                                    <div class="form-group col-md-2">
                                         <button type="submit" class="btn btn-primary" style="margin-top: 30px">Search</button>
-                                        <a href="{{ url('admin/employees') }}" class="btn btn-success" style="margin-top: 30px">Reset</a>
+                                        <a href="{{ url('admin/employee') }}" class="btn btn-success" style="margin-top: 30px">Reset</a>
                                     </div>
 
                                 </div>
@@ -77,22 +87,32 @@
                                         <th>#</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
 
-                                {{-- <tbody>
+                                <tbody>
                                     @foreach ($getRecord as $value)
                                         <tr>
                                             <td>{{ $value->id }}</td>
                                             <td>{{ $value->name }}</td>
                                             <td>{{ $value->last_name }}</td>
+                                            <td>{{ $value->email }}</td>
+                                            <td>{{ !empty($value->is_role) ? 'HR' :'Employee' }}</td>
+                                            <td>
+                                                <a href="" class="btn btn-info">View</a>
+                                                <a href="" class="btn btn-primary">Edit</a>
+                                                <a href="" class="btn btn-danger">Delete</a>
+                                            </td>
                                         </tr>
                                     @endforeach
-                                </tbody> --}}
+                                </tbody>
                             </table>
-                            {{-- <div style="padding: 10px; float: right">
+                            <div style="padding: 10px; float: right">
                                 {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
-                              </div> --}}
+                              </div>
 
                         </div>
 
