@@ -13,12 +13,12 @@ class EmployeeController extends Controller
         return view('backend.employee.list',$data);
     }
 
-    public function add(){
+    public function add(Request $request){
         return view('backend.employee.add');
     }
 
     public function insert(Request $request){
-        // dd($request->all());
+        //  dd($request->all());
         $user = request()->validate([
             'name' => 'required',
             'email' => 'required|unique:users',
@@ -39,6 +39,7 @@ class EmployeeController extends Controller
         $user->salary = trim($request->salary);
         $user->commission_pct = trim($request->commission_pct);
         $user->manager_id = trim($request->manager_id);
+        $user->department_id = trim($request->department_id);
         $user->is_role = 0; // 0 - employee
         $user->save();
         
@@ -50,6 +51,37 @@ class EmployeeController extends Controller
         // die();
         $data['getRecord'] = User::find($id);
         return view ('backend.employee.view',$data);
+    }
+
+    public function edit($id){
+        $data['getRecord'] = User::find($id);
+        return view ('backend.employee.edit',$data);
+    }
+
+    public function update($id, Request $request)
+    {
+        // dd($id);
+
+        $user = request()->validate([
+            'email' => 'required|unique:users,email,'.$id,
+        ]);
+
+        $user = User::find($id);
+        $user->name = trim($request->name);
+        $user->last_name = trim($request->last_name);
+        $user->email = trim($request->email);
+        $user->phone_number = trim($request->phone_number);
+        $user->hire_date = trim($request->hire_date);
+        $user->job_id = trim($request->job_id);
+        $user->salary = trim($request->salary);
+        $user->commission_pct = trim($request->commission_pct);
+        $user->manager_id = trim($request->manager_id);
+        $user->department_id = trim($request->department_id);
+        $user->is_role = 0; // 0 - employee
+        $user->save();
+        
+        return redirect('admin/employee')->with('success','Employee Successfully Update .');
+
     }
 
 

@@ -34,10 +34,12 @@ Route::post('login_post',[AuthController::class,'LoginPost']);
 Route::group(['middleware' => 'admin'], function (){
     Route::get('admin/dashboard',[DashboardController::class,'dashboard']);
 
-    Route::get('admin/employee',[EmployeeController::class,'index']);
-    Route::get('admin/employee/add',[EmployeeController::class,'add']);
-    Route::post('admin/employee/create',[EmployeeController::class,'insert']);
-    Route::get('admin/employee/view/{id}',[EmployeeController::class,'view']);
+    Route::get('admin/employee', [EmployeeController::class,'index']);
+    Route::any('admin/employee/add', [EmployeeController::class,'add']);
+    Route::post('admin/employee/create', [EmployeeController::class,'insert']);
+    Route::get('admin/employee/view/{id}', [EmployeeController::class,'view']);
+    Route::get('admin/employee/edit/{id}', [EmployeeController::class,'edit']);
+    Route::post('admin/employee/edit/{id}', [EmployeeController::class,'update']);
 
 });
 
