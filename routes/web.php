@@ -47,6 +47,7 @@ Route::group(['middleware' => 'admin'], function (){
     Route::get('admin/jobs', [JobController::class,'index']);
     Route::get('admin/jobs/add', [JobController::class,'add']);
     Route::post('admin/jobs/add', [JobController::class,'insert']);
+    Route::get('admin/jobs/view/{id}', [JobController::class,'view']);
 
 });
 
