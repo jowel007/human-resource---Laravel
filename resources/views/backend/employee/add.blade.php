@@ -32,7 +32,7 @@
                             </div>
 
                             <form  class="form-horizontal" method="POST" accept="{{ url('admin/employee/add') }}" enctype="multipart/form-data">
-                                
+
                                 @csrf
 
                                 <div class="card-body">

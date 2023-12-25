@@ -26,7 +26,7 @@ class EmployeeController extends Controller
             'job_id' => 'required',
             'commission_pct' => 'required',
             'manager_id' => 'required',
-            'manager_id' => 'required'
+            'department_id' => 'required'
         ]);
 
         $user = new User;
@@ -42,7 +42,7 @@ class EmployeeController extends Controller
         $user->department_id = trim($request->department_id);
         $user->is_role = 0; // 0 - employee
         $user->save();
-        
+
         return redirect('admin/employee')->with('success','Employee Successfully Register .');
     }
 
@@ -79,9 +79,16 @@ class EmployeeController extends Controller
         $user->department_id = trim($request->department_id);
         $user->is_role = 0; // 0 - employee
         $user->save();
-        
+
         return redirect('admin/employee')->with('success','Employee Successfully Update .');
 
+    }
+
+
+    public function delete($id){
+        $recordDelete = User::find($id);
+        $recordDelete->delete();
+        return redirect()->back()->with('error','Employee Deleted Successfully .');
     }
 
 

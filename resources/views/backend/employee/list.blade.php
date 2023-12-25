@@ -26,9 +26,9 @@
         {{-- @include('_message') --}}
     <section class="content">
         <div class="container-fluid">
-      
 
-            
+
+
 
             <div class="row">
                 <section class="col-lg-12">
@@ -104,7 +104,7 @@
                                             <td>
                                                 <a href="{{ url('admin/employee/view/'.$value->id) }}" class="btn btn-info">View</a>
                                                 <a href="{{ url('admin/employee/edit/'.$value->id) }}" class="btn btn-primary">Edit</a>
-                                                <a href="" class="btn btn-danger">Delete</a>
+                                                <a href="{{ url('admin/employee/delete/'.$value->id) }}" onclick="return confirm('Are You Confirm To Delete ?')" class="btn btn-danger">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach

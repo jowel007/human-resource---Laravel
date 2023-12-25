@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\EmployeeController;
+use App\Http\Controllers\Backend\JobController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,11 +36,15 @@ Route::group(['middleware' => 'admin'], function (){
     Route::get('admin/dashboard',[DashboardController::class,'dashboard']);
 
     Route::get('admin/employee', [EmployeeController::class,'index']);
-    Route::any('admin/employee/add', [EmployeeController::class,'add']);
-    Route::post('admin/employee/create', [EmployeeController::class,'insert']);
+    Route::get('admin/employee/add', [EmployeeController::class,'add']);
+    Route::post('admin/employee/add', [EmployeeController::class,'insert']);
     Route::get('admin/employee/view/{id}', [EmployeeController::class,'view']);
     Route::get('admin/employee/edit/{id}', [EmployeeController::class,'edit']);
     Route::post('admin/employee/edit/{id}', [EmployeeController::class,'update']);
+    Route::get('admin/employee/delete/{id}', [EmployeeController::class,'delete']);
+
+    // job route
+    Route::get('admin/jobs', [JobController::class,'index']);
 
 });
 
