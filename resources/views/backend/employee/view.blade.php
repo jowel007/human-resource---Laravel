@@ -131,7 +131,7 @@
                                             </th>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    {{ $getRecord->job_id }}
+                                                    {{ !empty($getRecord->get_job_single->job_title) ? $getRecord->get_job_single->job_title : '' }}
                                                 </div>
                                             </td>
                                           </tr>
