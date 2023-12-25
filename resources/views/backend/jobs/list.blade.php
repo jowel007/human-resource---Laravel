@@ -94,27 +94,26 @@
                                     </thead>
 
                                     <tbody>
-{{--                                    @foreach ($getRecord as $value)--}}
-{{--                                        <tr>--}}
-{{--                                            <td>{{ $value->id }}</td>--}}
-{{--                                            <td>{{ $value->job_title }}</td>--}}
-{{--                                            <td>{{ $value->min_salary }}</td>--}}
-{{--                                            <td>{{ $value->max_salary }}</td>--}}
-{{--                                            <td>{{ $value->created_at }}</td>--}}
-{{--                                            <td>{{ !empty($value->is_role) ? 'HR' :'Employee' }}</td>--}}
-{{--                                            <td>--}}
-{{--                                                <a href="{{ url('admin/jobs/view/'.$value->id) }}" class="btn btn-info">View</a>--}}
-{{--                                                <a href="{{ url('admin/jobs/edit/'.$value->id) }}" class="btn btn-primary">Edit</a>--}}
-{{--                                                <a href="{{ url('admin/jobs/delete/'.$value->id) }}" onclick="return confirm('Are You Confirm To Delete ?')" class="btn btn-danger">Delete</a>--}}
-{{--                                            </td>--}}
-{{--                                        </tr>--}}
-{{--                                    @endforeach--}}
+                                    @foreach ($getRecord as $value)
+                                        <tr>
+                                            <td>{{ $value->id }}</td>
+                                            <td>{{ $value->job_title }}</td>
+                                            <td>{{ $value->min_salary }}</td>
+                                            <td>{{ $value->max_salary }}</td>
+                                            <td>{{ date('d-m-Y H:i:s', strtotime($value->updated_at)) }}</td>
+                                            <td>
+                                                <a href="{{ url('admin/jobs/view/'.$value->id) }}" class="btn btn-info">View</a>
+                                                <a href="{{ url('admin/jobs/edit/'.$value->id) }}" class="btn btn-primary">Edit</a>
+                                                <a href="{{ url('admin/jobs/delete/'.$value->id) }}" onclick="return confirm('Are You Confirm To Delete ?')" class="btn btn-danger">Delete</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
 
 
                                     </tbody>
                                 </table>
                                 <div style="padding: 10px; float: right">
-{{--                                    {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}--}}
+                                    {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
                                 </div>
 
                             </div>
