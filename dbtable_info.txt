@@ -1,0 +1,8 @@
+New tabale create - job_history
+
+	-id
+	-employee_id	-from user table 0=employee
+	-start_date
+	-end_date
+	-job_id		- from jobs table
+	-department_id
