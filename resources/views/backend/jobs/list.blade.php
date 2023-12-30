@@ -12,6 +12,11 @@
                         <h1>Jobs</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6" style="text-align:right">
+                        <form action="{{ url('admin/jobs_export') }}" method="GET">
+                            <input type="hidden" name="start_date" value="{{ Request()->start_date }}">
+                            <input type="hidden" name="start_date" value="{{ Request()->end_date }}">
+                            <a href="{{ url('admin/jobs_export?start_date='.Request::get('start_date').'&end_date='.Request::get('end_date')) }}"  class="btn btn-success">Excel Export</a>
+                        </form><br>
                         <a href="{{ url('admin/jobs/add') }}" class="btn btn-primary">Add Jobs</a>
                         {{-- <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">List</a></li>
@@ -43,7 +48,7 @@
                                 <div class="card-body">
                                     <div class="row">
 
-                                        <div class="form-group col-md-1">
+                                        <div class="form-group col-md-3">
                                             <label for="">ID</label>
                                             <input type="text" class="form-control" value="{{ Request()->id }}" name="id" placeholder="ID">
                                         </div>
@@ -53,17 +58,27 @@
                                             <input type="text" class="form-control" value="{{ Request()->job_title }}" name="name" placeholder="Job Title">
                                         </div>
 
-                                        <div class="form-group col-md-2">
+                                        <div class="form-group col-md-3">
                                             <label for="">Min Salary</label>
                                             <input type="text" class="form-control" value="{{ Request()->min_salary }}" name="name" placeholder="Min Salary">
                                         </div>
 
-                                        <div class="form-group col-md-2">
+                                        <div class="form-group col-md-3">
                                             <label for="">max Salary</label>
                                             <input type="text" class="form-control" value="{{ Request()->max_salary }}" name="name" placeholder="Max Salary">
                                         </div>
 
-                                        <div class="form-group col-md-2">
+                                        <div class="form-group col-md-3">
+                                            <label for="">Form Date (Start Date)</label>
+                                            <input type="date" class="form-control" value="{{ Request()->start_date }}" name="start_date" >
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="">To Date (End Date)</label>
+                                            <input type="date" class="form-control" value="{{ Request()->end_date }}" name="end_date" >
+                                        </div>
+
+                                        <div class="form-group col-md-3">
                                             <button type="submit" class="btn btn-primary" style="margin-top: 30px">Search</button>
                                             <a href="{{ url('admin/jobs') }}" class="btn btn-success" style="margin-top: 30px">Reset</a>
                                         </div>
