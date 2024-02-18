@@ -31,7 +31,7 @@
                                 <h6 >Add Jobs</h6>
                             </div>
 
-                            <form  class="form-horizontal" method="POST" accept="{{ url('admin/job_history/add') }}" enctype="multipart/form-data">
+                            <form  class="form-horizontal" method="POST" href="{{ url('admin/job_history/add') }}" enctype="multipart/form-data">
 
                                 @csrf
 
@@ -90,10 +90,10 @@
                                         <div class="col-sm-9">
                                             <select class="form-control" name="department_id">
                                                 <option value="">Select Department Name</option>
-                                                <option value="">Designer & Developer</option>
-                                                <option value="">Devops</option>
-                                                <option value="">Mobile APP</option>
-                                                <option value="">Business Developer</option>
+                                                <option value="1">Designer & Developer</option>
+                                                <option value="2">Devops</option>
+                                                <option value="3">Mobile APP</option>
+                                                <option value="4">Business Developer</option>
                                             </select>
                                         </div>
                                     </div>
