@@ -27,6 +27,52 @@
             <div class="container">
                 <div class="row">
                     <section class="col-md-12">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Search Job History</h3>
+
+                            </div>
+
+                            <form action="" method="get">
+                                <div class="card-body">
+                                    <div class="row">
+
+                                        <div class="form-group col-md-3">
+                                            <label for="">ID</label>
+                                            <input type="text" class="form-control" value="{{ Request()->id }}" name="id" placeholder="ID">
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="">Employee Name</label>
+                                            <input type="text" class="form-control" value="{{ Request()->name }}" name="name" placeholder="Employee Name">
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="">Form Date (Start Date)</label>
+                                            <input type="date" class="form-control" value="{{ Request()->start_date }}" name="start_date" >
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="">To Date (End Date)</label>
+                                            <input type="date" class="form-control" value="{{ Request()->end_date }}" name="end_date" >
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="">Job Title</label>
+                                            <input type="text" class="form-control" value="{{ Request()->job_title }}" name="job_title" placeholder="Job Title">
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <button type="submit" class="btn btn-primary" style="margin-top: 30px">Search</button>
+                                            <a href="{{ url('admin/job_history') }}" class="btn btn-success" style="margin-top: 30px">Reset</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
                         @include('_message')
 
 
