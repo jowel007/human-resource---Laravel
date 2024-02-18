@@ -114,10 +114,11 @@
                                                 </th>
                                                 <th>{{ date('d-m-Y', strtotime($value->created_at)) }}</th>
                                                 <th>
-                                                    <a href="#" class="btn btn-primary">Edit</a>
-                                                    <a href="#" onclick="return confirm('Are You Confirm To Delete ?')" class="btn btn-danger">Delete</a>
+                                                    <a href="{{ url('admin/job_history/edit/'.$value->id) }}" class="btn btn-primary">Edit</a>
+                                                    <a href="{{ url('admin/job_history/delete/'.$value->id) }}" onclick="return confirm('Are You Confirm To Delete ?')" class="btn btn-danger">Delete</a>
                                                 </th>
                                             </tr>
+                                            
                                         @endforeach
                                         
                                     </tbody>
