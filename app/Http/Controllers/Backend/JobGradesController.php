@@ -9,7 +9,8 @@ use App\Models\JobGrades;
 class JobGradesController extends Controller
 {
     public function index(Request $request){
-        return view('backend.job_grades.list');
+        $data['getRecord'] = JobGrades::getRecord($request);
+        return view('backend.job_grades.list',$data);
     }
 
     public function add(Request $request){
