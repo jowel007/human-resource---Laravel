@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\JobHistoryModel;
 use App\Models\JobsModel;
 use App\Models\User;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\JobHistoryExport;
 
 class JobHistoryController extends Controller
 {
@@ -73,6 +75,11 @@ class JobHistoryController extends Controller
         $user = JobHistoryModel::find($id);
         $user->delete();
         return redirect()->back()->with('error','Job History Deleted Successfully .');
+    }
+
+
+    public function job_history_export(Request $request){
+        return Excel::download(new JobHistoryExport, 'job_history.xlsx');
     }
 
 
