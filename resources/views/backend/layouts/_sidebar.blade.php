@@ -102,7 +102,7 @@
                 </li>
 
                 <li class="nav-item menu-open">
-                    <a href="{{ url('admin/job_history') }}" class="nav-link">
+                    <a href="{{ url('admin/job_grades') }}" class="nav-link @if(Request::segment(2) == 'job_grades') active @endif">
                         <i class="nav-icon fas fa-star"></i>
                         <p>
                             Job Grades
