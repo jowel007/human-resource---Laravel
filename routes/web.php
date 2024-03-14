@@ -71,6 +71,9 @@ Route::group(['middleware' => 'admin'], function (){
     Route::get('admin/job_grades',[JobGradesController::class,'index']);
     Route::get('admin/job_grades/add',[JobGradesController::class,'add']);
     Route::post('admin/job_grades/add',[JobGradesController::class,'add_insert']);
+    Route::get('admin/job_grades/edit/{id}', [JobGradesController::class,'edit']);
+    Route::post('admin/job_grades/edit/{id}', [JobGradesController::class,'update']);
+    Route::get('admin/job_grades/delete/{id}', [JobGradesController::class,'delete']);
 
 });
 

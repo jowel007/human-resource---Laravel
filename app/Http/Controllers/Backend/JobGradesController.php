@@ -35,4 +35,30 @@ class JobGradesController extends Controller
 
     }
 
+
+    public function edit($id){
+        $data['getRecord'] = JobGrades::find($id);
+        return view('backend.job_grades.edit',$data);
+    }
+
+    public function update(Request $request, $id){
+
+        $user = JobGrades::find($id);
+        $user->grade_level = trim($request->grade_level);
+        $user->higest_salary = trim($request->higest_salary);
+        $user->lowest_salary = trim($request->lowest_salary);
+        $user->save();
+
+        return redirect('admin/job_grades')->with('success','Job Grade Successfully Updated .');
+    }
+
+    public function delete($id){
+        $users = JobGrades::find($id);
+        $users->delete();
+
+        return redirect('admin/job_grades')->with('error','Job Grade  Successfully Deleted.');
+    }
+
+
+
 }

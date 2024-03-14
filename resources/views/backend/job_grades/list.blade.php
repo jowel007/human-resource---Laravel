@@ -98,8 +98,8 @@
                                             <th>{{ date('d-m-Y', strtotime($value->created_at)) }}</th>
                                             <th>{{ date('d-m-Y', strtotime($value->updated_at)) }}</th>
                                             <th>
-                                                <a href="{{ url('admin/job_history/edit') }}" class="btn btn-primary">Edit</a>
-                                                <a href="{{ url('admin/job_history/delete') }}" onclick="return confirm('Are You Confirm To Delete ?')" class="btn btn-danger">Delete</a>
+                                                <a href="{{ url('admin/job_grades/edit/'.$value->id) }}" class="btn btn-primary">Edit</a>
+                                                <a href="{{ url('admin/job_grades/delete/'.$value->id) }}" onclick="return confirm('Are You Confirm To Delete ?')" class="btn btn-danger">Delete</a>
                                             </th>
                                         </tr>
                                         @empty
