@@ -111,6 +111,15 @@
                 </li>
 
                 <li class="nav-item menu-open">
+                    <a href="{{ url('admin/regions') }}" class="nav-link @if(Request::segment(2) == 'regions') active @endif">
+                        <i class="nav-icon fas fa-asterisk"></i>
+                        <p>
+                            Regions
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item menu-open">
                     <a href="{{ url('admin/department') }}" class="nav-link">
                         <i class="nav-icon fas fa-building"></i>
                         <p>
@@ -137,14 +146,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item menu-open">
-                    <a href="{{ url('admin/regions') }}" class="nav-link">
-                        <i class="nav-icon fas fa-asterisk"></i>
-                        <p>
-                            Regions
-                        </p>
-                    </a>
-                </li>
+
 
             </ul>
         </nav>
