@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\JobController;
 use App\Http\Controllers\Backend\JobHistoryController;
 use App\Http\Controllers\Backend\JobGradesController;
 use App\Http\Controllers\Backend\RegionsController;
+use App\Http\Controllers\Backend\CountriesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -78,7 +79,6 @@ Route::group(['middleware' => 'admin'], function (){
 
 
     //  Regions route
-
     Route::get('admin/regions',[RegionsController::class,'index']);
     Route::get('admin/regions/add',[RegionsController::class,'add']);
     Route::post('admin/regions/add',[RegionsController::class,'add_insert']);
@@ -86,6 +86,17 @@ Route::group(['middleware' => 'admin'], function (){
     Route::post('admin/regions/edit/{id}', [RegionsController::class,'update']);
     Route::get('admin/regions/delete/{id}', [RegionsController::class,'delete']);
 
+
+    //  Countries route
+    Route::get('admin/countries',[CountriesController::class,'index']);
+    Route::get('admin/countries/add',[CountriesController::class,'add']);
+    Route::post('admin/countries/add',[CountriesController::class,'add_insert']);
+    Route::get('admin/regions/edit/{id}', [RegionsController::class,'edit']);
+    Route::post('admin/regions/edit/{id}', [RegionsController::class,'update']);
+    Route::get('admin/regions/delete/{id}', [RegionsController::class,'delete']);
+
+
 });
+
 
 Route::get('logout',[AuthController::class,'logout']);
